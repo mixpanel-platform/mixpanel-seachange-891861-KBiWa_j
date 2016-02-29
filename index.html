@@ -112,7 +112,7 @@
                   <div class="col-lg-12">
                      <div class="panel panel-default">
                         <div class="panel-heading text-center">
-                           Real-Time Article Count -- How many articles have been read in the last 30 seconds?
+                           Real-Time Video Play Count 
                         </div>
                         <div class="panel-body">
                          <div id="datatable1_wrapper" class="dataTables_wrapper form-inline no-footer">
@@ -154,13 +154,6 @@
 
 
     <script>
-        /* Also, she asked about chartbeat style reports (number of simultaneous users). 
-        do you think we could do these with custom reports as well? I imagine it would be just like the number of unique users who sent some selection of events at 
-        least once in the last 5 min, or 10 min, or whatever we decided would be our definition of "simultaneity" */
-        /* Query Segmentation for a Union of events that have happened in the last minute */
-
-        /* Get top events */
-
         events = [];
         MP.api.topEvents().done(function(results) {
           _.each(_.values(results.values()), function(value){
@@ -251,7 +244,7 @@
             $('.date-pm').text(ampm);
 
             var pageViewParams = {limit: 25, type:'unique', unit:'minute', from: moment(), to: moment()}
-            var pageViewQuery = MP.api.segment('Page View', 'Url', pageViewParams)
+            var pageViewQuery = MP.api.segment('Video Play', 'Url', pageViewParams)
 
             pageViewQuery.done(function(results){
                 var data = {}
